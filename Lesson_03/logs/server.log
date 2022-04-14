@@ -1,0 +1,20 @@
+2022-04-13 21:35:57,741  DEBUG     decos.py      Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: main()
+2022-04-13 21:35:57,758  INFO      server.py     Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . По умолчанию соединения принимаются с любых адресов).
+2022-04-13 21:36:12,265  INFO      server.py     Установлено соединение с адресом и портом: ('127.0.0.1', 33258)
+2022-04-13 21:36:12,266  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33258)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-13 21:36:12,266  DEBUG     server.py     Разбор сообщения от клиента : {'action': 'presence', 'time': 1649874972.26524, 'user': {'account_name': 'User1'}}
+2022-04-13 21:37:13,409  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33258)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-13 21:37:13,409  DEBUG     server.py     Разбор сообщения от клиента : {'action': 'exit', 'time': 1649875033.132848, 'account_name': 'User1'}
+2022-04-13 21:37:13,410  INFO      server.py     Клиент ('127.0.0.1', 33258) отключился от сервера.
+2022-04-13 21:41:34,238  INFO      server.py     Установлено соединение с адресом и портом: ('127.0.0.1', 33260)
+2022-04-13 21:41:34,240  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33260)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-13 21:41:34,240  DEBUG     server.py     Разбор сообщения от клиента : {'action': 'presence', 'time': 1649875294.2386076, 'user': {'account_name': 'orbich67'}}
+2022-04-13 21:41:34,241  INFO      server.py     Клиент ('127.0.0.1', 33260) отключился от сервера.
+2022-04-13 21:42:22,710  DEBUG     decos.py      Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: main()
+2022-04-13 21:42:22,724  INFO      server.py     Запущен сервер, порт для подключений: 7777, адрес с которого принимаются подключения: . По умолчанию соединения принимаются с любых адресов).
+2022-04-13 21:42:35,518  INFO      server.py     Установлено соединение с адресом и портом: ('127.0.0.1', 33262)
+2022-04-13 21:42:36,020  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33262)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-13 21:42:36,020  DEBUG     server.py     Разбор сообщения от клиента : {'action': 'presence', 'time': 1649875355.5185578, 'user': {'account_name': 'orbich67'}}
+2022-04-13 21:42:59,080  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 7777), raddr=('127.0.0.1', 33262)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-13 21:42:59,080  DEBUG     server.py     Разбор сообщения от клиента : {'action': 'exit', 'time': 1649875378.8702369, 'account_name': 'orbich67'}
+2022-04-13 21:42:59,082  INFO      server.py     Клиент ('127.0.0.1', 33262) отключился от сервера.
