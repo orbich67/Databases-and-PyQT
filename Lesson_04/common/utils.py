@@ -1,10 +1,8 @@
 """Утилиты"""
 
 import json
-import sys
 
-sys.path.append('../')
-from common.variables import MAX_PACKAGE_LENGTH, ENCODING
+from common.variables import *
 from decos import log
 
 
