@@ -1,7 +1,9 @@
 """Утилиты"""
 
 import json
+import sys
 
+sys.path.append('../')
 from common.variables import *
 from decos import log
 
