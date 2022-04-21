@@ -1,16 +1,18 @@
 """Программа-сервер"""
 
+import socket
 import sys
 import os
-import socket
 import argparse
+import json
 import logging
-import logs.config_server_log
 import select
+import time
 import threading
-import configparser   # https://docs.python.org/3/library/configparser.html
-from common.utils import *
+import configparser
+import logs.config_server_log
 from common.variables import *
+from common.utils import *
 from decos import log
 from descryptors import Port
 from metaclasses import ServerMaker
@@ -18,14 +20,16 @@ from server_database import ServerStorage
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from PyQt5.QtCore import QTimer
 from server_gui import MainWindow, gui_create_model, HistoryWindow, create_stat_model, ConfigWindow
+from PyQt5.QtGui import QStandardItemModel, QStandardItem
 
 # Инициализация серверного логгера
 SERVER_LOGGER = logging.getLogger('server')
 
-# Флаг, что был подключён новый пользователь, нужен чтобы не мучать BD
+# Флаг, что был подключён новый пользователь, нужен чтобы не нагружать BD
 # постоянными запросами на обновление
 new_connection = False
 conflag_lock = threading.Lock()
+
 
 # Парсер аргументов командной строки.
 @log
@@ -69,10 +73,6 @@ class Server(threading.Thread, metaclass=ServerMaker):
             f'Запущен сервер, порт для подключений: {self.port}, '
             f'адрес с которого принимаются подключения: {self.addr}. '
             f'По умолчанию соединения принимаются с любых адресов).')
-        if self.addr:
-            print(f'Запущен сервер. Адрес: {self.addr}. Порт: {self.port}')
-        else:
-            print(f'Запущен сервер. Адрес: 127.0.0.1. Порт: {self.port}')
         # Готовим сокет
         transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         transport.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -85,6 +85,7 @@ class Server(threading.Thread, metaclass=ServerMaker):
 
     def run(self):
         # Инициализация Сокета
+        global new_connection
         self.init_socket()
 
         # Основной цикл программы сервера
@@ -113,8 +114,7 @@ class Server(threading.Thread, metaclass=ServerMaker):
             if recv_data_lst:
                 for client_with_message in recv_data_lst:
                     try:
-                        self.process_client_message(
-                            get_message(client_with_message), client_with_message)
+                        self.process_client_message(get_message(client_with_message), client_with_message)
                     except OSError:
                         # Ищем клиента в словаре клиентов и удаляем его из базы подключённых
                         SERVER_LOGGER.info(f'Клиент {client_with_message.getpeername()} отключился от сервера.')
@@ -124,26 +124,30 @@ class Server(threading.Thread, metaclass=ServerMaker):
                                 del self.names[name]
                                 break
                         self.clients.remove(client_with_message)
+                        with conflag_lock:
+                            new_connection = True
 
             # Если есть сообщения, обрабатываем каждое.
             for message in self.messages:
                 try:
                     self.process_message(message, send_data_lst)
-                except Exception as e:
+                except (ConnectionAbortedError, ConnectionError,
+                        ConnectionResetError, ConnectionRefusedError):
                     SERVER_LOGGER.info(f'Связь с клиентом с именем '
-                                       f'{message[DESTINATION]} была потеряна, '
-                                       f' ошибка {e}')
+                                       f'{message[DESTINATION]} была потеряна')
                     self.clients.remove(self.names[message[DESTINATION]])
                     self.database.user_logout(message[DESTINATION])
                     del self.names[message[DESTINATION]]
+                    with conflag_lock:
+                        new_connection = True
             self.messages.clear()
 
     # Функция адресной отправки сообщения определённому клиенту.
     # Принимает словарь сообщение, список зарегистрированных пользователей и 
     # слушающие сокеты. Ничего не возвращает.
     def process_message(self, message, listen_socks):
-        if message[DESTINATION] in self.names and \
-                self.names[message[DESTINATION]] in listen_socks:
+        if message[DESTINATION] in self.names \
+                and self.names[message[DESTINATION]] in listen_socks:
             send_message(self.names[message[DESTINATION]], message)
             SERVER_LOGGER.info(f'Отправлено сообщение пользователю {message[DESTINATION]} '
                                f'от пользователя {message[SENDER]}.')
@@ -186,10 +190,18 @@ class Server(threading.Thread, metaclass=ServerMaker):
                 and DESTINATION in message \
                 and TIME in message \
                 and SENDER in message \
-                and MESSAGE_TEXT in message:
-            self.messages.append(message)
-            self.database.process_message(message[SENDER], message[DESTINATION])
+                and MESSAGE_TEXT in message \
+                and self.names[message[SENDER]] == client:
+            if message[DESTINATION] in self.names:
+                self.messages.append(message)
+                self.database.process_message(message[SENDER], message[DESTINATION])
+                send_message(client, RESPONSE_200)
+            else:
+                response = RESPONSE_400
+                response[ERROR] = 'Пользователь не зарегистрирован на сервере.'
+                send_message(client, response)
             return
+
         # Если клиент выходит
         elif ACTION in message \
                 and message[ACTION] == EXIT \
@@ -237,13 +249,21 @@ class Server(threading.Thread, metaclass=ServerMaker):
             return
 
 
-def print_help():
-    print('Поддерживаемые команды:')
-    print('users - список известных пользователей')
-    print('connected - список подключённых пользователей')
-    print('loghist - история входов пользователя')
-    print('exit - завершение работы сервера.')
-    print('help - вывод справки по поддерживаемым командам')
+# Загрузка файла конфигурации
+def config_load():
+    config = configparser.ConfigParser()
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config.read(f"{dir_path}/{'server.ini'}")
+    # Если конфиг файл загружен правильно, запускаемся, иначе конфиг по умолчанию.
+    if 'SETTINGS' in config:
+        return config
+    else:
+        config.add_section('SETTINGS')
+        config.set('SETTINGS', 'Default_port', str(DEFAULT_PORT))
+        config.set('SETTINGS', 'Listen_Address', '')
+        config.set('SETTINGS', 'Database_path', '')
+        config.set('SETTINGS', 'Database_file', 'server_database.db3')
+        return config
 
 
 def main():
@@ -258,7 +278,6 @@ def main():
     listen_address, listen_port = arg_parser(
         config['SETTINGS']['Default_port'], config['SETTINGS']['Listen_Address'])
 
-    # Инициализация базы данных
     # Инициализация базы данных
     database = ServerStorage(
         os.path.join(

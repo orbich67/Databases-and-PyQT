@@ -2,14 +2,14 @@
 
 import sys
 import os
+sys.path.append('../')
 import logging
-sys.path.append(os.path.join(os.getcwd(), '..'))
+# sys.path.append(os.path.join(os.getcwd(), '..'))
 import logging.handlers
 from common.variables import LOGGING_LEVEL
-sys.path.append('../')
 
 # определяем формат сообщений:
-SERVER_FORMATTER = logging.Formatter('%(asctime)-24s %(levelname)-9s %(filename)-13s %(message)s')
+SERVER_FORMATTER = logging.Formatter('%(asctime)-24s %(levelname)-9s %(filename)-15s %(message)s')
 
 # Подготовка имени файла логирования
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +18,7 @@ PATH = os.path.join(PATH, 'server.log')
 # создаём потоки вывода логов
 STREAM_HANDLER = logging.StreamHandler(sys.stderr)
 STREAM_HANDLER.setFormatter(SERVER_FORMATTER)
-STREAM_HANDLER.setLevel(logging.ERROR)
+STREAM_HANDLER.setLevel(logging.INFO)
 LOG_FILE = logging.handlers.TimedRotatingFileHandler(PATH, encoding='utf8', interval=1, when='D')
 LOG_FILE.setFormatter(SERVER_FORMATTER)
 

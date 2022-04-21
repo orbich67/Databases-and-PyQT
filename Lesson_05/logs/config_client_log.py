@@ -3,13 +3,14 @@
 import sys
 import os
 import logging
-sys.path.append(os.path.join(os.getcwd(), '..'))
-from common.variables import LOGGING_LEVEL
 sys.path.append('../')
+# sys.path.append(os.path.join(os.getcwd(), '..'))
+from common.variables import LOGGING_LEVEL
+
 
 
 # определяем формат сообщений:
-CLIENT_FORMATTER = logging.Formatter('%(asctime)-24s %(levelname)-9s %(filename)-13s %(message)s')
+CLIENT_FORMATTER = logging.Formatter('%(asctime)-24s %(levelname)-9s %(filename)-15s %(message)s')
 
 # подготовка имени файла логирования
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -18,7 +19,7 @@ PATH = os.path.join(PATH, 'client.log')
 # создаём потоки вывода логов
 STREAM_HANDLER = logging.StreamHandler()
 STREAM_HANDLER.setFormatter(CLIENT_FORMATTER)
-STREAM_HANDLER.setLevel(logging.ERROR)
+STREAM_HANDLER.setLevel(logging.INFO)
 LOG_FILE = logging.FileHandler(PATH, encoding='utf8')
 LOG_FILE.setFormatter(CLIENT_FORMATTER)
 
