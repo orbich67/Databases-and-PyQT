@@ -1,0 +1,496 @@
+2022-04-20 23:47:36,664  DEBUG     decos.py      Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: arg_parser()
+2022-04-20 23:47:42,740  INFO      client.py     Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User1
+2022-04-20 23:47:43,319  INFO      transport.py  Попытка подключения №1
+2022-04-20 23:47:43,319  DEBUG     transport.py  Установлено соединение с сервером
+2022-04-20 23:47:43,319  DEBUG     transport.py  Сформировано presence сообщение для пользователя User1
+2022-04-20 23:47:43,518  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:47:43,518  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:47:43,519  INFO      transport.py  Соединение с сервером успешно установлено.
+2022-04-20 23:47:43,519  DEBUG     transport.py  Запрос списка известных пользователей User1
+2022-04-20 23:47:44,021  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:47:44,107  DEBUG     transport.py  Запрос контакт листа для пользователя Thread-1
+2022-04-20 23:47:44,107  DEBUG     transport.py  Сформирован запрос {'action': 'get_contacts', 'time': 1650487664.1075444, 'user': 'User1'}
+2022-04-20 23:47:44,526  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:47:44,526  DEBUG     transport.py  Получен ответ {'response': 202, 'data_list': []}
+2022-04-20 23:47:44,527  DEBUG     transport.py  Запущен процесс - приёмник сообщений с сервера.
+2022-04-20 23:47:54,585  INFO      client_2.py   Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User2
+2022-04-20 23:47:55,722  INFO      transport.py  Попытка подключения №1
+2022-04-20 23:47:55,723  DEBUG     transport.py  Установлено соединение с сервером
+2022-04-20 23:47:55,723  DEBUG     transport.py  Сформировано presence сообщение для пользователя User2
+2022-04-20 23:47:56,399  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:47:56,399  INFO      transport.py  Соединение с сервером успешно установлено.
+2022-04-20 23:47:56,399  DEBUG     transport.py  Запрос списка известных пользователей User2
+2022-04-20 23:47:57,010  DEBUG     transport.py  Запрос контакт листа для пользователя Thread-1
+2022-04-20 23:47:57,010  DEBUG     transport.py  Сформирован запрос {'action': 'get_contacts', 'time': 1650487677.0107167, 'user': 'User2'}
+2022-04-20 23:47:57,403  DEBUG     transport.py  Получен ответ {'response': 202, 'data_list': []}
+2022-04-20 23:47:57,404  DEBUG     transport.py  Запущен процесс - приёмник сообщений с сервера.
+2022-04-20 23:48:08,891  INFO      client_3.py   Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User3
+2022-04-20 23:48:09,603  INFO      transport.py  Попытка подключения №1
+2022-04-20 23:48:09,604  DEBUG     transport.py  Установлено соединение с сервером
+2022-04-20 23:48:09,604  DEBUG     transport.py  Сформировано presence сообщение для пользователя User3
+2022-04-20 23:48:09,825  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:48:09,825  INFO      transport.py  Соединение с сервером успешно установлено.
+2022-04-20 23:48:09,825  DEBUG     transport.py  Запрос списка известных пользователей User3
+2022-04-20 23:48:10,436  DEBUG     transport.py  Запрос контакт листа для пользователя Thread-1
+2022-04-20 23:48:10,436  DEBUG     transport.py  Сформирован запрос {'action': 'get_contacts', 'time': 1650487690.436204, 'user': 'User3'}
+2022-04-20 23:48:10,829  DEBUG     transport.py  Получен ответ {'response': 202, 'data_list': []}
+2022-04-20 23:48:10,830  DEBUG     transport.py  Запущен процесс - приёмник сообщений с сервера.
+2022-04-20 23:48:30,513  DEBUG     transport.py  Запрос списка известных пользователей User1
+2022-04-20 23:48:30,851  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:48:30,944  DEBUG     add_contact.py Обновление списка пользователей с сервера выполнено
+2022-04-20 23:48:33,709  DEBUG     transport.py  Создание контакта User2
+2022-04-20 23:48:33,943  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:48:33,943  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:48:34,120  INFO      main_window.py Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f0901112ee0>
+2022-04-20 23:48:40,165  DEBUG     transport.py  Создание контакта User3
+2022-04-20 23:48:41,049  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:48:41,049  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:48:41,126  INFO      main_window.py Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f090006b670>
+2022-04-20 23:48:47,286  DEBUG     transport.py  Создание контакта User1
+2022-04-20 23:48:47,668  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:48:47,756  INFO      main_window.py Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f34d0a9af70>
+2022-04-20 23:48:56,664  DEBUG     transport.py  Создание контакта User1
+2022-04-20 23:48:56,785  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:48:56,873  INFO      main_window.py Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f5dee000f70>
+2022-04-20 23:49:20,800  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487760.7999756, 'mess_text': 'Hi! User2!'}
+2022-04-20 23:49:21,435  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:49:21,435  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:49:21,435  INFO      transport.py  Отправлено сообщение для пользователя User2
+2022-04-20 23:49:21,436  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487760.7999756, 'mess_text': 'Hi! User2!'}
+2022-04-20 23:49:21,436  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487760.7999756, 'mess_text': 'Hi! User2!'}
+2022-04-20 23:49:21,436  DEBUG     transport.py  Получено сообщение от пользователя User1:Hi! User2!
+2022-04-20 23:49:21,644  DEBUG     main_window.py Отправлено сообщение для User2: Hi! User2!
+2022-04-20 23:49:35,098  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User2', 'to': 'User1', 'time': 1650487775.098635, 'mess_text': 'Hello! User1!'}
+2022-04-20 23:49:35,559  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-20 23:49:35,560  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User2', 'to': 'User1', 'time': 1650487775.098635, 'mess_text': 'Hello! User1!'}
+2022-04-20 23:49:35,560  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User2', 'to': 'User1', 'time': 1650487775.098635, 'mess_text': 'Hello! User1!'}
+2022-04-20 23:49:35,560  DEBUG     transport.py  Получено сообщение от пользователя User2:Hello! User1!
+2022-04-20 23:49:35,560  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:49:35,560  INFO      transport.py  Отправлено сообщение для пользователя User1
+2022-04-20 23:49:35,758  DEBUG     main_window.py Отправлено сообщение для User1: Hello! User1!
+2022-04-20 23:49:43,717  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487783.7174318, 'mess_text': 'Hi! User3!'}
+2022-04-20 23:49:44,243  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:49:44,243  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:49:44,243  INFO      transport.py  Отправлено сообщение для пользователя User3
+2022-04-20 23:49:44,320  DEBUG     main_window.py Отправлено сообщение для User3: Hi! User3!
+2022-04-20 23:49:44,925  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487783.7174318, 'mess_text': 'Hi! User3!'}
+2022-04-20 23:49:44,925  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487783.7174318, 'mess_text': 'Hi! User3!'}
+2022-04-20 23:49:44,925  DEBUG     transport.py  Получено сообщение от пользователя User1:Hi! User3!
+2022-04-20 23:49:52,776  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User3', 'to': 'User1', 'time': 1650487792.7760048, 'mess_text': 'Hi! User1!'}
+2022-04-20 23:49:53,348  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-20 23:49:53,348  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User3', 'to': 'User1', 'time': 1650487792.7760048, 'mess_text': 'Hi! User1!'}
+2022-04-20 23:49:53,348  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User3', 'to': 'User1', 'time': 1650487792.7760048, 'mess_text': 'Hi! User1!'}
+2022-04-20 23:49:53,348  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:49:53,348  DEBUG     transport.py  Получено сообщение от пользователя User3:Hi! User1!
+2022-04-20 23:49:53,348  INFO      transport.py  Отправлено сообщение для пользователя User1
+2022-04-20 23:49:53,515  DEBUG     main_window.py Отправлено сообщение для User1: Hi! User1!
+2022-04-20 23:51:02,005  DEBUG     transport.py  Удаление контакта User3
+2022-04-20 23:51:02,526  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:51:02,526  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:51:02,615  INFO      main_window.py Успешно удалён контакт User3
+2022-04-20 23:51:12,911  DEBUG     transport.py  Создание контакта User3
+2022-04-20 23:51:13,163  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:51:13,164  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:51:13,252  INFO      main_window.py Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f08f70e55e0>
+2022-04-20 23:51:37,066  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487897.066398, 'mess_text': 'By!'}
+2022-04-20 23:51:37,293  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:51:37,293  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:51:37,293  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487897.066398, 'mess_text': 'By!'}
+2022-04-20 23:51:37,293  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User3', 'time': 1650487897.066398, 'mess_text': 'By!'}
+2022-04-20 23:51:37,293  INFO      transport.py  Отправлено сообщение для пользователя User3
+2022-04-20 23:51:37,293  DEBUG     transport.py  Получено сообщение от пользователя User1:By!
+2022-04-20 23:51:37,470  DEBUG     main_window.py Отправлено сообщение для User3: By!
+2022-04-20 23:51:54,331  DEBUG     transport.py  Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487914.3312442, 'mess_text': 'Good!'}
+2022-04-20 23:51:54,904  DEBUG     decos.py      Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48424), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:51:54,904  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:51:54,904  INFO      transport.py  Отправлено сообщение для пользователя User2
+2022-04-20 23:51:55,014  DEBUG     main_window.py Отправлено сообщение для User2: Good!
+2022-04-20 23:51:55,815  DEBUG     transport.py  Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487914.3312442, 'mess_text': 'Good!'}
+2022-04-20 23:51:55,815  DEBUG     transport.py  Разбор приветственного сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User2', 'time': 1650487914.3312442, 'mess_text': 'Good!'}
+2022-04-20 23:51:55,815  DEBUG     transport.py  Получено сообщение от пользователя User1:Good!
+2022-04-20 23:52:10,944  DEBUG     transport.py  Транспорт завершает работу.
+2022-04-20 23:52:11,827  DEBUG     transport.py  Потеряно соединение с сервером.
+2022-04-20 23:52:20,534  DEBUG     transport.py  Потеряно соединение с сервером.
+2022-04-20 23:52:20,925  DEBUG     transport.py  Потеряно соединение с сервером.
+2022-04-20 23:52:22,792  DEBUG     transport.py  Транспорт завершает работу.
+2022-04-20 23:52:24,548  DEBUG     transport.py  Транспорт завершает работу.
+2022-04-20 23:58:05,496  DEBUG     decos.py        Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: arg_parser()
+2022-04-20 23:58:11,010  INFO      client.py       Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User1
+2022-04-20 23:58:11,118  INFO      transport.py    Попытка подключения №1
+2022-04-20 23:58:11,118  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-20 23:58:11,118  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-20 23:58:11,206  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:58:11,206  DEBUG     transport.py    Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:58:11,206  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-20 23:58:11,206  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-20 23:58:11,708  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:58:11,784  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-20 23:58:11,784  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650488291.7843082, 'user': 'User1'}
+2022-04-20 23:58:12,214  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-20 23:58:12,214  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2', 'User3']}
+2022-04-20 23:58:12,373  DEBUG     transport.py    Запущен процесс - приёмник сообщений с сервера.
+2022-04-20 23:58:56,152  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-20 23:58:56,263  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:58:56,366  DEBUG     add_contact.py  Обновление списка пользователей с сервера выполнено
+2022-04-20 23:58:57,876  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-20 23:58:58,266  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:58:58,376  DEBUG     add_contact.py  Обновление списка пользователей с сервера выполнено
+2022-04-20 23:59:02,751  DEBUG     transport.py    Удаление контакта User3
+2022-04-20 23:59:02,852  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:59:02,852  DEBUG     transport.py    Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:59:02,952  INFO      main_window.py  Успешно удалён контакт User3
+2022-04-20 23:59:08,117  DEBUG     transport.py    Удаление контакта User2
+2022-04-20 23:59:08,448  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 48430), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-20 23:59:08,448  DEBUG     transport.py    Разбор приветственного сообщения от сервера: {'response': 200}
+2022-04-20 23:59:08,548  INFO      main_window.py  Успешно удалён контакт User2
+2022-04-20 23:59:12,437  DEBUG     transport.py    Транспорт завершает работу.
+2022-04-21 21:42:27,771  DEBUG     decos.py        Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: arg_parser()
+2022-04-21 21:42:31,829  INFO      client.py       Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User4
+2022-04-21 21:42:32,339  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:42:32,340  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:42:32,340  DEBUG     transport.py    Сформировано presence сообщение для пользователя User4
+2022-04-21 21:42:32,673  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 21:42:32,673  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:42:32,674  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:42:32,674  DEBUG     transport.py    Запрос списка известных пользователей User4
+2022-04-21 21:42:33,176  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 21:42:33,283  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:42:33,283  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650566553.2837014, 'user': 'User4'}
+2022-04-21 21:42:33,682  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 21:42:33,682  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': []}
+2022-04-21 21:42:33,740  DEBUG     transport.py    Запущен процесс - приёмник сообщений с сервера.
+2022-04-21 21:42:46,168  DEBUG     transport.py    Создание контакта User1
+2022-04-21 21:42:46,323  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 21:42:46,323  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:42:46,408  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f9224b42d30>
+2022-04-21 21:42:52,450  DEBUG     transport.py    Создание контакта User2
+2022-04-21 21:42:52,928  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 21:42:52,928  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:42:53,048  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f9224126f70>
+2022-04-21 21:42:58,240  DEBUG     transport.py    Создание контакта User3
+2022-04-21 21:42:58,546  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60646), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 21:42:58,547  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:42:58,656  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f9224126940>
+2022-04-21 21:43:18,952  DEBUG     transport.py    Транспорт завершает работу.
+2022-04-21 21:45:29,728  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:45:30,729  INFO      transport.py    Попытка подключения №2
+2022-04-21 21:45:31,731  INFO      transport.py    Попытка подключения №3
+2022-04-21 21:45:32,731  INFO      transport.py    Попытка подключения №4
+2022-04-21 21:45:33,733  INFO      transport.py    Попытка подключения №5
+2022-04-21 21:45:34,734  CRITICAL  transport.py    Не удалось установить соединение с сервером
+2022-04-21 21:45:44,308  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:45:44,308  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:45:44,308  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:45:44,429  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:45:44,429  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:45:44,429  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:45:45,029  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:45:45,029  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650566745.0297928, 'user': 'User1'}
+2022-04-21 21:45:45,439  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': []}
+2022-04-21 21:45:54,042  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:45:54,567  DEBUG     add_contact.py  Обновление списка пользователей с сервера выполнено
+2022-04-21 21:45:55,438  DEBUG     transport.py    Создание контакта User2
+2022-04-21 21:45:55,545  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:45:55,656  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f5aa33a4b80>
+2022-04-21 21:46:01,642  DEBUG     transport.py    Удаление контакта User2
+2022-04-21 21:46:02,141  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:46:02,241  INFO      main_window.py  Успешно удалён контакт User2
+2022-04-21 21:46:08,419  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:46:08,747  DEBUG     add_contact.py  Обновление списка пользователей с сервера выполнено
+2022-04-21 21:46:11,659  DEBUG     transport.py    Создание контакта User2
+2022-04-21 21:46:12,267  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:46:12,378  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f5aa1c6e040>
+2022-04-21 21:47:14,695  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:47:14,695  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:47:14,695  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:47:19,700  CRITICAL  transport.py    Потеряно соединение с сервером!
+2022-04-21 21:47:32,550  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:47:32,550  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:47:32,550  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:47:32,671  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:47:32,671  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:47:32,671  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:47:33,282  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:47:33,282  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650566853.2829158, 'user': 'User1'}
+2022-04-21 21:47:33,679  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:47:57,123  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:47:57,124  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:47:57,124  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:48:02,129  CRITICAL  transport.py    Потеряно соединение с сервером!
+2022-04-21 21:48:30,591  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:48:30,591  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:48:30,591  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:48:35,596  CRITICAL  transport.py    Потеряно соединение с сервером!
+2022-04-21 21:48:54,764  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:48:54,765  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:48:54,765  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:48:54,919  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:48:54,919  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:48:54,919  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:48:55,541  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:48:55,541  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650566935.541684, 'user': 'User1'}
+2022-04-21 21:48:55,927  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:49:37,181  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:49:37,182  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:49:37,182  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:49:37,303  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:49:37,303  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:49:37,303  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:49:37,903  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:49:37,903  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650566977.9033136, 'user': 'User1'}
+2022-04-21 21:49:38,311  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:50:23,330  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:50:23,330  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:50:23,330  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:50:23,462  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:50:23,462  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:50:23,463  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:50:24,113  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:50:24,113  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567024.1137328, 'user': 'User1'}
+2022-04-21 21:50:24,470  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:51:04,282  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:51:04,282  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:51:04,282  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:51:04,469  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:51:04,469  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:51:04,470  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:51:05,147  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:51:05,147  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567065.1474988, 'user': 'User1'}
+2022-04-21 21:51:05,477  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:51:59,380  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:51:59,380  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:51:59,380  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:51:59,502  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:51:59,502  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:51:59,502  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:52:00,112  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:52:00,112  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567120.11252, 'user': 'User1'}
+2022-04-21 21:52:00,509  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:52:37,978  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:52:37,978  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:52:37,978  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:52:38,110  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:52:38,110  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:52:38,111  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:52:38,710  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:52:38,710  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567158.7104256, 'user': 'User1'}
+2022-04-21 21:52:39,118  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:53:03,619  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:53:03,619  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:53:03,619  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:53:03,738  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:53:03,739  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:53:03,739  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:53:04,327  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:53:04,327  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567184.3272748, 'user': 'User1'}
+2022-04-21 21:53:04,747  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:53:29,333  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:53:29,334  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:53:29,334  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:53:29,511  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:53:29,511  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:53:29,511  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:53:30,110  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:53:30,110  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567210.1107383, 'user': 'User1'}
+2022-04-21 21:53:30,518  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:54:01,024  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:54:01,025  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:54:01,025  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:54:01,146  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:54:01,146  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:54:01,146  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:54:01,745  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:54:01,746  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567241.746076, 'user': 'User1'}
+2022-04-21 21:54:02,154  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:54:26,775  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:54:26,775  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:54:26,775  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:54:26,952  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:54:26,952  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:54:26,952  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:54:27,551  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:54:27,551  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567267.5519514, 'user': 'User1'}
+2022-04-21 21:54:27,961  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:56:31,906  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:56:31,906  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:56:31,906  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:56:32,038  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:56:32,038  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:56:32,038  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:56:32,627  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:56:32,627  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567392.6278234, 'user': 'User1'}
+2022-04-21 21:56:33,047  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:56:55,636  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:56:55,636  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:56:55,636  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:56:55,758  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:56:55,758  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:56:55,758  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:56:56,368  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:56:56,368  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567416.3684807, 'user': 'User1'}
+2022-04-21 21:56:56,765  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:58:48,586  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:58:48,587  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:58:48,587  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:58:48,718  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:58:48,718  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:58:48,719  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:58:49,318  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:58:49,318  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567529.3183453, 'user': 'User1'}
+2022-04-21 21:58:49,726  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:59:10,950  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:59:10,950  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:59:10,950  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:59:11,107  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:59:11,107  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:59:11,107  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:59:11,726  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:59:11,726  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567551.7266653, 'user': 'User1'}
+2022-04-21 21:59:12,112  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:59:34,823  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:59:34,823  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:59:34,823  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:59:34,944  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:59:34,944  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:59:34,944  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:59:35,533  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:59:35,533  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567575.5333145, 'user': 'User1'}
+2022-04-21 21:59:35,951  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 21:59:54,233  INFO      transport.py    Попытка подключения №1
+2022-04-21 21:59:54,234  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 21:59:54,234  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 21:59:54,865  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 21:59:54,865  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 21:59:54,865  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 21:59:55,464  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 21:59:55,465  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567595.4650578, 'user': 'User1'}
+2022-04-21 21:59:55,873  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:00:14,109  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:00:14,110  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:00:14,110  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:00:14,231  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:00:14,231  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:00:14,231  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:00:14,819  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:00:14,819  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567614.8197198, 'user': 'User1'}
+2022-04-21 22:00:15,238  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:00:43,224  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:00:43,224  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:00:43,224  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:00:43,345  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:00:43,345  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:00:43,345  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:00:43,945  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:00:43,945  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567643.9452505, 'user': 'User1'}
+2022-04-21 22:00:44,353  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:01:14,016  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:01:14,017  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:01:14,017  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:01:14,170  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:01:14,170  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:01:14,170  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:01:14,770  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:01:14,770  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567674.770567, 'user': 'User1'}
+2022-04-21 22:01:15,179  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:01:39,910  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:01:39,910  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:01:39,910  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:01:40,032  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:01:40,032  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:01:40,032  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:01:40,631  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:01:40,631  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567700.6313303, 'user': 'User1'}
+2022-04-21 22:01:41,040  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:02:06,971  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:02:06,971  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:02:06,971  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:02:07,103  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:02:07,103  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:02:07,103  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:02:07,703  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:02:07,703  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567727.703239, 'user': 'User1'}
+2022-04-21 22:02:08,112  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:02:35,607  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:02:35,608  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:02:35,608  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:02:35,729  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:02:35,729  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:02:35,730  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:02:36,318  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:02:36,318  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567756.3184574, 'user': 'User1'}
+2022-04-21 22:02:36,736  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:03:20,901  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:03:20,901  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:03:20,902  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:03:21,023  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:03:21,023  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:03:21,023  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:03:21,622  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:03:21,622  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567801.6226323, 'user': 'User1'}
+2022-04-21 22:03:22,030  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:03:43,451  DEBUG     decos.py        Была вызвана функция: arg_parser, с параметрами: (), {}. Вызов из модуля: __main__. Вызов из функции: arg_parser()
+2022-04-21 22:03:48,382  INFO      client.py       Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User1
+2022-04-21 22:03:48,505  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:03:48,506  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:03:48,506  DEBUG     transport.py    Сформировано presence сообщение для пользователя User1
+2022-04-21 22:03:48,648  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 22:03:48,649  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:03:48,649  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:03:48,649  DEBUG     transport.py    Запрос списка известных пользователей User1
+2022-04-21 22:03:49,152  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 22:03:49,271  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:03:49,271  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567829.2719626, 'user': 'User1'}
+2022-04-21 22:03:49,657  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_name)
+2022-04-21 22:03:49,658  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User2']}
+2022-04-21 22:03:49,749  DEBUG     transport.py    Запущен процесс - приёмник сообщений с сервера.
+2022-04-21 22:04:00,630  INFO      client_2.py     Запущен клиент с параметрами: адрес сервера: 127.0.0.1 , порт: 7777, имя пользователя: User4
+2022-04-21 22:04:00,762  INFO      transport.py    Попытка подключения №1
+2022-04-21 22:04:00,762  DEBUG     transport.py    Установлено соединение с сервером
+2022-04-21 22:04:00,762  DEBUG     transport.py    Сформировано presence сообщение для пользователя User4
+2022-04-21 22:04:00,852  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:04:00,852  INFO      transport.py    Соединение с сервером успешно установлено.
+2022-04-21 22:04:00,852  DEBUG     transport.py    Запрос списка известных пользователей User4
+2022-04-21 22:04:01,450  DEBUG     transport.py    Запрос контакт листа для пользователя Thread-1
+2022-04-21 22:04:01,450  DEBUG     transport.py    Сформирован запрос {'action': 'get_contacts', 'time': 1650567841.450946, 'user': 'User4'}
+2022-04-21 22:04:01,858  DEBUG     transport.py    Получен ответ {'response': 202, 'data_list': ['User1', 'User2', 'User3']}
+2022-04-21 22:04:02,161  DEBUG     transport.py    Запущен процесс - приёмник сообщений с сервера.
+2022-04-21 22:04:22,333  DEBUG     transport.py    Сформирован словарь сообщения: {'action': 'message', 'from': 'User4', 'to': 'User1', 'time': 1650567862.3332431, 'mess_text': 'Hello! Test'}
+2022-04-21 22:04:22,517  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:04:22,518  INFO      transport.py    Отправлено сообщение для пользователя User1
+2022-04-21 22:04:22,518  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: self._bootstrap_inner()
+2022-04-21 22:04:22,518  DEBUG     transport.py    Принято сообщение с сервера: {'action': 'message', 'from': 'User4', 'to': 'User1', 'time': 1650567862.3332431, 'mess_text': 'Hello! Test'}
+2022-04-21 22:04:22,518  DEBUG     transport.py    Разбор сообщения от сервера: {'action': 'message', 'from': 'User4', 'to': 'User1', 'time': 1650567862.3332431, 'mess_text': 'Hello! Test'}
+2022-04-21 22:04:22,518  DEBUG     transport.py    Получено сообщение от пользователя User4:Hello! Test
+2022-04-21 22:04:22,692  DEBUG     main_window.py  Отправлено сообщение для User1: Hello! Test
+2022-04-21 22:04:24,826  DEBUG     transport.py    Создание контакта User4
+2022-04-21 22:04:25,160  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 22:04:25,160  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:04:25,259  INFO      main_window.py  Успешно добавлен контакт <PyQt5.QtGui.QStandardItem object at 0x7f69adedcca0>
+2022-04-21 22:04:52,814  DEBUG     transport.py    Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567892.8147671, 'mess_text': 'Yes! Test fine'}
+2022-04-21 22:04:53,908  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 22:04:53,908  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:04:53,908  INFO      transport.py    Отправлено сообщение для пользователя User4
+2022-04-21 22:04:54,219  DEBUG     transport.py    Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567892.8147671, 'mess_text': 'Yes! Test fine'}
+2022-04-21 22:04:54,219  DEBUG     transport.py    Разбор сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567892.8147671, 'mess_text': 'Yes! Test fine'}
+2022-04-21 22:04:54,220  DEBUG     transport.py    Получено сообщение от пользователя User1:Yes! Test fine
+2022-04-21 22:04:56,529  DEBUG     main_window.py  Отправлено сообщение для User4: Yes! Test fine
+2022-04-21 22:05:37,422  DEBUG     transport.py    Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567937.422704, 'mess_text': 'How are you?'}
+2022-04-21 22:05:37,591  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 22:05:37,591  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:05:37,591  INFO      transport.py    Отправлено сообщение для пользователя User4
+2022-04-21 22:05:37,691  DEBUG     main_window.py  Отправлено сообщение для User4: How are you?
+2022-04-21 22:05:38,378  DEBUG     transport.py    Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567937.422704, 'mess_text': 'How are you?'}
+2022-04-21 22:05:38,378  DEBUG     transport.py    Разбор сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567937.422704, 'mess_text': 'How are you?'}
+2022-04-21 22:05:38,378  DEBUG     transport.py    Получено сообщение от пользователя User1:How are you?
+2022-04-21 22:06:19,865  DEBUG     transport.py    Сформирован словарь сообщения: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567979.865253, 'mess_text': 'Why do not you answer?'}
+2022-04-21 22:06:20,276  DEBUG     decos.py        Была вызвана функция: get_message, с параметрами: (<socket.socket fd=20, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 60718), raddr=('127.0.0.1', 7777)>,), {}. Вызов из модуля: common.utils. Вызов из функции: client_app.exec_()
+2022-04-21 22:06:20,276  DEBUG     transport.py    Разбор сообщения от сервера: {'response': 200}
+2022-04-21 22:06:20,276  DEBUG     transport.py    Принято сообщение с сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567979.865253, 'mess_text': 'Why do not you answer?'}
+2022-04-21 22:06:20,276  INFO      transport.py    Отправлено сообщение для пользователя User4
+2022-04-21 22:06:20,276  DEBUG     transport.py    Разбор сообщения от сервера: {'action': 'message', 'from': 'User1', 'to': 'User4', 'time': 1650567979.865253, 'mess_text': 'Why do not you answer?'}
+2022-04-21 22:06:20,276  DEBUG     transport.py    Получено сообщение от пользователя User1:Why do not you answer?
+2022-04-21 22:06:20,462  DEBUG     main_window.py  Отправлено сообщение для User4: Why do not you answer?
+2022-04-21 22:06:29,173  DEBUG     transport.py    Потеряно соединение с сервером.
+2022-04-21 22:06:30,141  DEBUG     transport.py    Потеряно соединение с сервером.
+2022-04-21 22:06:30,862  DEBUG     transport.py    Транспорт завершает работу.
+2022-04-21 22:06:32,060  DEBUG     transport.py    Транспорт завершает работу.
