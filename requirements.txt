@@ -1,0 +1,15 @@
+bandit==1.7.4
+gitdb==4.0.9
+GitPython==3.1.27
+greenlet==1.1.2
+pbr==5.8.1
+pycryptodome==3.14.1
+pycryptodomex==3.14.1
+PyQt5==5.15.6
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.10.1
+PyQt5-stubs==5.15.2.0
+PyYAML==6.0
+smmap==5.0.0
+SQLAlchemy==1.4.35
+stevedore==3.5.0

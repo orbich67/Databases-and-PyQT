@@ -2,10 +2,9 @@
 
 import sys
 import logging
+sys.path.append('../')
 import logs.config_client_log
 import logs.config_server_log
-import traceback
-
 
 # определяем LOGGER для источника запуска
 if sys.argv[0].find('client.py') == -1:
@@ -17,11 +16,11 @@ else:
 def log(func_to_log):
     """Функция-декоратор"""
     def log_saver(*args, **kwargs):
-        res = func_to_log(*args, **kwargs)
-        #
-        LOGGER.debug(f'Была вызвана функция: {func_to_log.__name__}, с параметрами: {args}, {kwargs}. '
-                     f'Вызов из модуля: {func_to_log.__module__}. '
-                     f'Вызов из функции: {traceback.format_stack()[0].strip().split()[-1]}')
+        LOGGER.debug(
+            f'Была вызвана функция {func_to_log.__name__} c параметрами {args} , {kwargs}. '
+            f'Вызов из модуля {func_to_log.__module__}')
+        ret = func_to_log(*args, **kwargs)
+        return ret
 
-        return res
     return log_saver
+

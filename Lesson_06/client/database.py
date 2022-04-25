@@ -1,10 +1,11 @@
+import datetime
+import sys
+
+sys.path.append('../')
+from common.variables import *
 from sqlalchemy import create_engine, Table, Column, Integer, String, Text, MetaData, DateTime
 from sqlalchemy.orm import mapper, sessionmaker
 import os
-import sys
-sys.path.append('../')
-from common.variables import *
-import datetime
 
 
 # Класс - база данных сервера.
@@ -16,7 +17,7 @@ class ClientDatabase:
             self.username = user
 
     # Класс - отображение таблицы истории сообщений
-    class MessageHistory:
+    class MessageStat:
         def __init__(self, contact, direction, message):
             self.id = None
             self.contact = contact
@@ -74,7 +75,7 @@ class ClientDatabase:
 
         # Создаём отображения
         mapper(self.KnownUsers, users)
-        mapper(self.MessageHistory, history)
+        mapper(self.MessageStat, history)
         mapper(self.Contacts, contacts)
 
         # Создаём сессию
@@ -97,9 +98,14 @@ class ClientDatabase:
         self.session.query(self.Contacts).filter_by(name=contact).delete()
         self.session.commit()
 
-    # Функция добавления известных пользователей.
-    # Пользователи получаются только с сервера, поэтому таблица очищается.
+    def contacts_clear(self):
+        """ Метод, очищающий таблицу со списком контактов. """
+        self.session.query(self.Contacts).delete()
+        self.session.commit()
+
     def add_users(self, users_list):
+        """ Функция добавления известных пользователей. """
+        # Пользователи получаются только с сервера, поэтому таблица очищается.
         self.session.query(self.KnownUsers).delete()
         for user in users_list:
             user_row = self.KnownUsers(user)
@@ -108,7 +114,7 @@ class ClientDatabase:
 
     def save_message(self, contact, direction, message):
         """ Функция сохраняет сообщения """
-        message_row = self.MessageHistory(contact, direction, message)
+        message_row = self.MessageStat(contact, direction, message)
         self.session.add(message_row)
         self.session.commit()
 
@@ -136,7 +142,7 @@ class ClientDatabase:
 
     def get_history(self, contact):
         """ Функция возвращает историю переписки """
-        query = self.session.query(self.MessageHistory).filter_by(contact=contact)
+        query = self.session.query(self.MessageStat).filter_by(contact=contact)
         return [(history_row.contact, history_row.direction,
                  history_row.message, history_row.date)
                 for history_row in query.all()]
