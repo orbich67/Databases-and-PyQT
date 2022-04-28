@@ -1,7 +1,5 @@
 """Программа-клиент"""
 
-import logging
-import logs.config_client_log
 import argparse
 import sys
 import os
@@ -9,8 +7,8 @@ from Cryptodome.PublicKey import RSA
 from PyQt5.QtWidgets import QApplication, QMessageBox
 
 from common.variables import *
-from errors import ServerError
-from decos import log
+from common.errors import ServerError
+from common.decos import log
 from client.database import ClientDatabase
 from client.transport import ClientTransport
 from client.main_window import ClientMainWindow
@@ -23,8 +21,9 @@ CLIENT_LOGGER = logging.getLogger('client')
 
 @log
 def arg_parser():
-    """ Парсер аргументов командной строки,
-    читает и возвращает 4 параметра (server_address, server_port, client_mode, client_passwd) """
+    """Парсер аргументов командной строки,
+    читает и возвращает 4 параметра (server_address, server_port, client_mode, client_passwd)
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('addr', default=DEFAULT_IP_ADDRESS, nargs='?')
     parser.add_argument('port', default=DEFAULT_PORT, type=int, nargs='?')

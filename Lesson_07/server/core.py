@@ -1,5 +1,4 @@
 import threading
-import logging
 import select
 import socket
 import json
@@ -7,9 +6,9 @@ import hmac
 import binascii
 import os
 import sys
+
 sys.path.append('../')
-from metaclasses import ServerMaker
-from descryptors import Port
+from common.descryptors import Port
 from common.variables import *
 from common.utils import send_message, get_message
 
@@ -18,7 +17,9 @@ SERVER_LOGGER = logging.getLogger('server')
 
 
 class MessageProcessor(threading.Thread):
-    """ Основной класс сервера """
+    """Основной класс сервера. Принимает соединения, словари - пакеты
+    от клиентов, обрабатывает поступающие сообщения
+    """
 
     port = Port()
 
@@ -50,7 +51,7 @@ class MessageProcessor(threading.Thread):
         super().__init__()
 
     def run(self):
-        """ Метод основной цикл потока """
+        """Метод основной цикл потока"""
         # Инициализация сокета
         self.init_socket()
 
@@ -88,7 +89,7 @@ class MessageProcessor(threading.Thread):
                         self.remove_client(client_with_message)
 
     def remove_client(self, client):
-        """ Метод обработчик клиента с которым прервана связь """
+        """Метод обработчик клиента с которым прервана связь"""
         # Ищем клиента в словаре клиентов и удаляем его из базы подключённых
         SERVER_LOGGER.info(f'Клиент {client.getpeername()} отключился от сервера.')
         for name in self.names:
@@ -100,7 +101,7 @@ class MessageProcessor(threading.Thread):
         client.close()
 
     def init_socket(self):
-        """ Метод инициализатор сокета """
+        """Метод инициализатор сокета"""
         SERVER_LOGGER.info(
             f'Запущен сервер, порт для подключений: {self.port}, '
             f'адрес с которого принимаются подключения: {self.addr}. '
@@ -116,7 +117,7 @@ class MessageProcessor(threading.Thread):
         self.sock.listen(MAX_CONNECTIONS)
 
     def process_message(self, message):
-        """ Метод адресной отправки сообщения определённому клиенту """
+        """Метод адресной отправки сообщения определённому клиенту"""
         if message[DESTINATION] in self.names and self.names[message[DESTINATION]] in self.listen_sockets:
             try:
                 send_message(self.names[message[DESTINATION]], message)
@@ -133,7 +134,7 @@ class MessageProcessor(threading.Thread):
                 f'Пользователь {message[DESTINATION]} не зарегистрирован на сервере, отправка сообщения невозможна.')
 
     def process_client_message(self, message, client):
-        """ Метод обработчик поступающих сообщений """
+        """Метод обработчик поступающих сообщений"""
         SERVER_LOGGER.debug(f'Разбор сообщения от клиента : {message}')
         # Если это сообщение о присутствии - принимаем и отвечаем
         if ACTION in message and message[ACTION] == PRESENCE and TIME in message and USER in message:
@@ -233,7 +234,7 @@ class MessageProcessor(threading.Thread):
                 self.remove_client(client)
 
     def autorize_user(self, message, sock):
-        """ Метод авторизации пользователей """
+        """Метод авторизации пользователей"""
         # Если имя пользователя уже занято - возвращаем 400
         SERVER_LOGGER.debug(f'Запущен процесс авторизации для пользователя: {message[USER]}')
         if message[USER][ACCOUNT_NAME] in self.names.keys():
@@ -308,7 +309,7 @@ class MessageProcessor(threading.Thread):
                 sock.close()
 
     def service_update_lists(self):
-        """ Метод реализующий отправки сервисного сообщения 205 клиентам """
+        """Метод реализующий отправку сервисного сообщения 205 клиентам"""
         for client in self.names:
             try:
                 send_message(self.names[client], RESPONSE_205)

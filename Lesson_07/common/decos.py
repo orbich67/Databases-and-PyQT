@@ -14,7 +14,7 @@ else:
 
 
 def log(func_to_log):
-    """Функция-декоратор"""
+    """Функция-декоратор, выполняющий логирование вызовов функций"""
     def log_saver(*args, **kwargs):
         LOGGER.debug(
             f'Была вызвана функция {func_to_log.__name__} c параметрами {args} , {kwargs}. '

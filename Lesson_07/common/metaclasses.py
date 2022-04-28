@@ -3,19 +3,11 @@ import dis
 
 
 class ServerMaker(type):
+    """Метакласс, проверяющий, что в результирующем классе нет клиентских вызовов"""
     def __init__(cls, clsname, bases, clsdict):
         # clsname - экземпляр метакласса - Server
         # bases - кортеж базовых классов - ()
         # clsdict - словарь атрибутов и методов экземпляра метакласса
-        #
-        # {'__init__': <function Server.__init__ at 0x7fe4bc074700>,
-        # '__module__': '__main__',
-        # '__qualname__': 'Server',
-        # 'init_socket': <function Server.init_socket at 0x7fe4bc074790>,
-        # 'main_loop': <function Server.main_loop at 0x7fe4bc074820>,
-        # 'port': <descrptrs.Port object at 0x7fe4bc395e80>,
-        # 'process_client_message': <function Server.process_client_message at 0x7fe4bc074940>,
-        # 'process_message': <function Server.process_message at 0x7fe4bc0748b0>}
 
         # Список методов, которые используются в функциях класса:
         # получаем с помощью 'LOAD_GLOBAL'
@@ -59,13 +51,6 @@ class ServerMaker(type):
                         if i.argval not in attrs:
                             # заполняем список атрибутами, использующимися в функциях класса
                             attrs.append(i.argval)
-        # print(20 * '-', 'methods', 20 * '-')
-        # pprint(methods)
-        # print(20 * '-', 'methods_2', 20 * '-')
-        # pprint(methods_2)
-        # print(20 * '-', 'attrs', 20 * '-')
-        # pprint(attrs)
-        # print(50 * '-')
         # Если обнаружено использование недопустимого метода connect, вызываем исключение:
         if 'connect' in methods:
             raise TypeError('Использование метода connect недопустимо в серверном классе')
@@ -78,6 +63,7 @@ class ServerMaker(type):
 
 # Метакласс для проверки корректности клиентов:
 class ClientMaker(type):
+    """Метакласс, проверяющий, что в результирующем классе нет серверных вызовов"""
     def __init__(cls, clsname, bases, clsdict):
         # clsname - экземпляр метакласса - ClientSender / ClientReader
         # bases - кортеж базовых классов - ()

@@ -2,7 +2,7 @@
 
 
 class ServerError(Exception):
-    """Исключение - ошибка сервера"""
+    """Класс - исключение, для обработки ошибок сервера"""
     def __init__(self, text):
         self.text = text
 
@@ -11,7 +11,7 @@ class ServerError(Exception):
 
 
 class ReqFieldMissingError(Exception):
-    """Ошибка - отсутствует обязательное поле в принятом словаре"""
+    """Класс - исключение отсутствует обязательное поле в принятом словаре"""
     def __init__(self, missing_field):
         self.missing_field = missing_field
 
@@ -20,6 +20,6 @@ class ReqFieldMissingError(Exception):
 
 
 class IncorrectDataRecivedError(Exception):
-    """Исключение - некорректные данные получены от сокета"""
+    """Класс - исключение некорректные данные получены от сокета"""
     def __str__(self):
         return 'Принято некорректное сообщение от удалённого компьютера.'

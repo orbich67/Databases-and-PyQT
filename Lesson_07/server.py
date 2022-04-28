@@ -1,14 +1,10 @@
 """Программа-сервер"""
 
-import sys
 import os
 import argparse
-import logging
 import configparser
-import logs.config_server_log
-from common.variables import *
 from common.utils import *
-from decos import log
+from common.decos import log
 from server.core import MessageProcessor
 from server.database import ServerStorage
 from server.main_window import MainWindow
@@ -21,7 +17,7 @@ SERVER_LOGGER = logging.getLogger('server')
 
 @log
 def arg_parser(default_port, default_address):
-    """ Парсер аргументов командной строки """
+    """Парсер аргументов командной строки"""
     SERVER_LOGGER.debug(f'Инициализация парсера аргументов командной строки: {sys.argv}')
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', default=default_port, type=int, nargs='?')
@@ -37,7 +33,7 @@ def arg_parser(default_port, default_address):
 
 @log
 def config_load():
-    """ Парсер конфигурационного ini файла """
+    """Парсер конфигурационного ini файла"""
     config = configparser.ConfigParser()
     dir_path = os.path.dirname(os.path.realpath(__file__))
     config.read(f"{dir_path}/{'server_dist+++.ini'}")

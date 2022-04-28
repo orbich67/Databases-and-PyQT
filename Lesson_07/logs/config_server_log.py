@@ -1,4 +1,4 @@
-"""Конфиг серверного логгера"""
+"""Конфиг серверной части приложения"""
 
 import sys
 import os
@@ -27,7 +27,6 @@ LOGGER = logging.getLogger('server')
 LOGGER.addHandler(STREAM_HANDLER)
 LOGGER.addHandler(LOG_FILE)
 LOGGER.setLevel(LOGGING_LEVEL)
-
 
 # проверка работы серверного конфига логов
 if __name__ == '__main__':

@@ -6,6 +6,9 @@ SERVER_LOGGER = logging.getLogger('server')
 
 # Дескриптор для описания порта:
 class Port:
+    """Класс - дескриптор для номера порта.
+    Позволяет использовать только порты с 1023 по 65536
+    """
     def __set__(self, instance, value):
         if not 1023 < value < 65536:
             SERVER_LOGGER.critical(

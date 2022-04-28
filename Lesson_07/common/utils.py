@@ -5,16 +5,15 @@ import sys
 
 sys.path.append('../')
 from common.variables import *
-from decos import log
+from common.decos import log
 
 
 @log
 def get_message(client):
-    """
-    Утилита приема и декодирования сообщения
+    """Утилита приема и декодирования сообщения
     принимает байты, выдает словарь, если принято что-то другое - отдаёт ошибку значения.
-    :param client:
-    :return:
+    :param client: сокет для передачи данных.
+    :return: словарь - сообщение.
     """
     encoded_response = client.recv(MAX_PACKAGE_LENGTH)
     if isinstance(encoded_response, bytes):
@@ -27,12 +26,11 @@ def get_message(client):
 
 
 def send_message(sock, message):
-    """
-    Утилита кодирования и отправки сообщения
-    принимает словарь и отправляет его
-    :param sock:
-    :param message:
-    :return:
+    """Утилита кодирования и отправки сообщения
+    принимает словарь и отправляет его.
+    :param sock: сокет для передачи.
+    :param message: словарь для передачи.
+    :return: ничего не возвращает.
     """
     if not isinstance(message, dict):
         raise TypeError

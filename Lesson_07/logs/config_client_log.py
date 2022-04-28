@@ -1,4 +1,4 @@
-"""Конфиг клиентского логгера"""
+"""Конфиг клиентской части приложения"""
 
 import sys
 import os
@@ -6,8 +6,6 @@ import logging
 sys.path.append('../')
 # sys.path.append(os.path.join(os.getcwd(), '..'))
 from common.variables import LOGGING_LEVEL
-
-
 
 # определяем формат сообщений:
 CLIENT_FORMATTER = logging.Formatter('%(asctime)-24s %(levelname)-9s %(filename)-15s %(message)s')

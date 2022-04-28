@@ -1,8 +1,6 @@
 import socket
 import sys
 import time
-import logging
-import json
 import threading
 import hashlib
 import hmac
@@ -12,7 +10,7 @@ from PyQt5.QtCore import pyqtSignal, QObject
 sys.path.append('../')
 from common.utils import *
 from common.variables import *
-from errors import ServerError
+from common.errors import ServerError
 
 # Инициализация клиентского логгера
 CLIENT_LOGGER = logging.getLogger('client')
@@ -21,8 +19,8 @@ CLIENT_LOGGER = logging.getLogger('client')
 socket_lock = threading.Lock()
 
 
-# Класс - Транспорт, отвечает за взаимодействие с сервером
 class ClientTransport(threading.Thread, QObject):
+    """Класс - транспорт, отвечает за взаимодействие с сервером"""
     # Сигналы новое сообщение и потеря соединения
     new_message = pyqtSignal(dict)
     message_205 = pyqtSignal()
@@ -62,7 +60,7 @@ class ClientTransport(threading.Thread, QObject):
         self.running = True
 
     def connection_init(self, port, ip):
-        """ Метод инициализации соединения с сервером """
+        """Метод инициализации соединения с сервером"""
         self.transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Таймаут необходим для освобождения сокета.
@@ -121,8 +119,7 @@ class ClientTransport(threading.Thread, QObject):
                     if ans[RESPONSE] == 400:
                         raise ServerError(ans[ERROR])
                     elif ans[RESPONSE] == 511:
-                        # Если всё нормально, то продолжаем процедуру
-                        # авторизации.
+                        # Если всё нормально, то продолжаем процедуру авторизации.
                         ans_data = ans[DATA]
                         hash = hmac.new(passwd_hash_string, ans_data.encode('utf-8'), 'MD5')
                         digest = hash.digest()
@@ -136,7 +133,7 @@ class ClientTransport(threading.Thread, QObject):
                 raise ServerError('Сбой соединения в процессе авторизации.')
 
     def process_server_ans(self, message):
-        """ Метод обработчик поступающих сообщений с сервера """
+        """Метод обработчик поступающих сообщений с сервера"""
         CLIENT_LOGGER.debug(f'Разбор сообщения от сервера: {message}')
 
         # Если это подтверждение чего-либо
@@ -153,8 +150,7 @@ class ClientTransport(threading.Thread, QObject):
                 CLIENT_LOGGER.error(
                     f'Принят неизвестный код подтверждения {message[RESPONSE]}')
 
-        # Если это сообщение от пользователя добавляем в базу, даём сигнал о
-        # новом сообщении
+        # Если это сообщение от пользователя добавляем в базу, даём сигнал о новом сообщении
         elif ACTION in message and message[ACTION] == MESSAGE and SENDER in message and DESTINATION in message \
                 and MESSAGE_TEXT in message and message[DESTINATION] == self.username:
             CLIENT_LOGGER.debug(
@@ -162,7 +158,7 @@ class ClientTransport(threading.Thread, QObject):
             self.new_message.emit(message)
 
     def contacts_list_update(self):
-        """ Метод обновляющий с сервера список контактов """
+        """Метод обновляющий с сервера список контактов"""
         self.database.contacts_clear()
         CLIENT_LOGGER.debug(f'Запрос контакт листа для пользователя {self.name}')
         req = {
@@ -182,7 +178,7 @@ class ClientTransport(threading.Thread, QObject):
             CLIENT_LOGGER.error('Не удалось обновить список контактов.')
 
     def user_list_update(self):
-        """ Метод обновляющий с сервера список пользователей """
+        """Метод, обновляющий с сервера список пользователей"""
         CLIENT_LOGGER.debug(f'Запрос списка известных пользователей {self.username}')
         req = {
             ACTION: USERS_REQUEST,
@@ -198,7 +194,7 @@ class ClientTransport(threading.Thread, QObject):
             CLIENT_LOGGER.error('Не удалось обновить список известных пользователей.')
 
     def key_request(self, user):
-        """ Метод запрашивающий с сервера публичный ключ пользователя """
+        """Метод, запрашивающий с сервера публичный ключ пользователя"""
         CLIENT_LOGGER.debug(f'Запрос публичного ключа для {user}')
         req = {
             ACTION: PUBLIC_KEY_REQUEST,
@@ -214,7 +210,7 @@ class ClientTransport(threading.Thread, QObject):
             CLIENT_LOGGER.error(f'Не удалось получить ключ собеседника{user}.')
 
     def add_contact(self, contact):
-        """ Метод отправляющий на сервер сведения о добавлении контакта """
+        """Метод, отправляющий на сервер сведения о добавлении контакта"""
         CLIENT_LOGGER.debug(f'Создание контакта {contact}')
         req = {
             ACTION: ADD_CONTACT,
@@ -227,7 +223,7 @@ class ClientTransport(threading.Thread, QObject):
             self.process_server_ans(get_message(self.transport))
 
     def del_contact(self, contact):
-        """ Метод отправляющий на сервер сведения об удалении контакта """
+        """Метод, отправляющий на сервер сведения об удалении контакта"""
         CLIENT_LOGGER.debug(f'Удаление контакта {contact}')
         req = {
             ACTION: DEL_CONTACT,
@@ -240,7 +236,7 @@ class ClientTransport(threading.Thread, QObject):
             self.process_server_ans(get_message(self.transport))
 
     def transport_shutdown(self):
-        """ Метод уведомляющий сервер о завершении работы клиента """
+        """Метод, уведомляющий сервер о завершении работы клиента"""
         self.running = False
         message = {
             ACTION: EXIT,
@@ -256,7 +252,7 @@ class ClientTransport(threading.Thread, QObject):
         time.sleep(0.5)
 
     def send_message(self, to, message):
-        """ Метод отправляющий на сервер сообщения для пользователя """
+        """Метод, отправляющий на сервер сообщения для пользователя"""
         message_dict = {
             ACTION: MESSAGE,
             SENDER: self.username,
@@ -272,7 +268,7 @@ class ClientTransport(threading.Thread, QObject):
             CLIENT_LOGGER.info(f'Отправлено сообщение для пользователя {to}')
 
     def run(self):
-        """ Метод содержащий основной цикл работы транспортного потока """
+        """Метод, содержащий основной цикл работы транспортного потока"""
         CLIENT_LOGGER.debug('Запущен процесс - приёмник сообщений с сервера.')
         while self.running:
             # Отдыхаем секунду и снова пробуем захватить сокет.

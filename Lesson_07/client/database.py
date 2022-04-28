@@ -10,14 +10,14 @@ import os
 
 # Класс - база данных сервера.
 class ClientDatabase:
-    # Класс - отображение таблицы известных пользователей.
+    """Класс - оболочка для работы с базой данных клиента"""
     class KnownUsers:
         def __init__(self, user):
             self.id = None
             self.username = user
 
-    # Класс - отображение таблицы истории сообщений
     class MessageStat:
+        """Класс - отображение таблицы истории сообщений"""
         def __init__(self, contact, direction, message):
             self.id = None
             self.contact = contact
@@ -25,15 +25,15 @@ class ClientDatabase:
             self.message = message
             self.date = datetime.datetime.now()
 
-    # Класс - отображение списка контактов
     class Contacts:
+        """Класс - отображение списка контактов"""
         def __init__(self, contact):
             self.id = None
             self.name = contact
 
     # Конструктор класса:
     def __init__(self, name):
-        # Создаём движок базы данных, поскольку разрешено несколько клиентов одновременно,
+        # Создаётся движок базы данных, поскольку разрешено несколько клиентов одновременно,
         # каждый должен иметь свою БД.
         # Поскольку клиент мультипоточный, то необходимо отключить проверки на подключения
         # с разных потоков, иначе sqlite3. ProgrammingError
@@ -87,24 +87,24 @@ class ClientDatabase:
         self.session.commit()
 
     def add_contact(self, contact):
-        """ Функция добавления контактов """
+        """Функция добавления контактов"""
         if not self.session.query(self.Contacts).filter_by(name=contact).count():
             contact_row = self.Contacts(contact)
             self.session.add(contact_row)
             self.session.commit()
 
     def del_contact(self, contact):
-        """ Функция удаления контакта """
+        """Метод удаления контакта"""
         self.session.query(self.Contacts).filter_by(name=contact).delete()
         self.session.commit()
 
     def contacts_clear(self):
-        """ Метод, очищающий таблицу со списком контактов. """
+        """Метод, очищающий таблицу со списком контактов"""
         self.session.query(self.Contacts).delete()
         self.session.commit()
 
     def add_users(self, users_list):
-        """ Функция добавления известных пользователей. """
+        """Метод добавления известных пользователей"""
         # Пользователи получаются только с сервера, поэтому таблица очищается.
         self.session.query(self.KnownUsers).delete()
         for user in users_list:
@@ -113,35 +113,35 @@ class ClientDatabase:
         self.session.commit()
 
     def save_message(self, contact, direction, message):
-        """ Функция сохраняет сообщения """
+        """Метод сохраняет сообщения"""
         message_row = self.MessageStat(contact, direction, message)
         self.session.add(message_row)
         self.session.commit()
 
     def get_contacts(self):
-        """ Функция возвращает контакты """
+        """Метод возвращает контакты"""
         return [contact[0] for contact in self.session.query(self.Contacts.name).all()]
 
     def get_users(self):
-        """ Функция возвращает список известных пользователей """
+        """Метод возвращает список известных пользователей"""
         return [user[0] for user in self.session.query(self.KnownUsers.username).all()]
 
     def check_user(self, user):
-        """ Функция проверяет наличие пользователя в таблице Известных Пользователей """
+        """Метод проверяет наличие пользователя в таблице известных пользователей"""
         if self.session.query(self.KnownUsers).filter_by(username=user).count():
             return True
         else:
             return False
 
     def check_contact(self, contact):
-        """ Функция проверяет наличие пользователя в таблице Контактов """
+        """Метод проверяет наличие пользователя в таблице Контактов"""
         if self.session.query(self.Contacts).filter_by(name=contact).count():
             return True
         else:
             return False
 
     def get_history(self, contact):
-        """ Функция возвращает историю переписки """
+        """Метод возвращает историю переписки"""
         query = self.session.query(self.MessageStat).filter_by(contact=contact)
         return [(history_row.contact, history_row.direction,
                  history_row.message, history_row.date)
